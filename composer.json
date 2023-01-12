@@ -26,7 +26,7 @@
     "homepage": "https://www.laravel-enso.com",
     "require": {
         "laravel-enso/forms": "^4.0",
-        "laravel-enso/helpers": "^2.0",
+        "laravel-enso/helpers": "^3.0",
         "laravel-enso/upgrade": "^2.0",
         "laravel-enso/migrator": "^2.0"
     },
