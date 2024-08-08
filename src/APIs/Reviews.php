@@ -16,7 +16,9 @@ class Reviews
     public function handle(): array
     {
         $response = Http::get($this->apiUrl(), [
-            'fields' => 'user_ratings_total,rating',
+            'fields' => 'user_ratings_total,rating,reviews',
+            'reviews_no_translations' => true,
+            'reviews_sort' => 'newest',
             'place_id' => $this->placeId(),
             'key' => $this->apiKey(),
         ]);
