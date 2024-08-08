@@ -10,12 +10,22 @@ use LaravelEnso\Rememberable\Traits\Rememberable;
 
 class Settings extends Model
 {
-    use HasFactory;
-    use Rememberable;
+    use HasFactory, Rememberable;
 
     protected $table = 'google_settings';
 
     protected $guarded = ['id'];
+
+    protected $casts = [
+        'analytics_id' => Encrypt::class,
+        'ads_id' => Encrypt::class,
+        'tag_id' => Encrypt::class,
+        'maps_key' => Encrypt::class,
+        'geocoding_key' => Encrypt::class,
+        'places_key' => Encrypt::class,
+        'recaptcha_key' => Encrypt::class,
+        'recaptcha_secret' => Encrypt::class,
+    ];
 
     public static function current()
     {
@@ -31,6 +41,11 @@ class Settings extends Model
     public static function recaptchaUrl(): ?string
     {
         return self::current()->recaptcha_url;
+    }
+
+    public static function placeId(): ?string
+    {
+        return self::current()->place_id;
     }
 
     public static function adsId(): ?string
@@ -53,9 +68,19 @@ class Settings extends Model
         return self::current()->geocoding_key;
     }
 
+    public static function placesKey(): ?string
+    {
+        return self::current()->places_key;
+    }
+
     public static function mapsURL(): ?string
     {
         return self::current()->maps_url;
+    }
+
+    public static function placesURL(): ?string
+    {
+        return self::current()->places_url;
     }
 
     protected static function newFactory()

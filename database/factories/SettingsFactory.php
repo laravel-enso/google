@@ -19,6 +19,7 @@ class SettingsFactory extends Factory
             'maps_url' => 'https://maps.googleapis.com/maps/api/geocode/json',
             'recaptcha_key' => null,
             'recaptcha_url' => 'https://www.google.com/recaptcha/api/siteverify',
+            'places_url' => 'https://maps.googleapis.com/maps/api/place/details/json',
             'recaptcha_secret' => null,
             'tag_manager_id' => null,
         ];
