@@ -5,7 +5,6 @@ namespace LaravelEnso\Google\APIs;
 use Illuminate\Http\Client\Response;
 use Illuminate\Support\Facades\Http;
 use LaravelEnso\Google\APIs\Exceptions\Places;
-use LaravelEnso\Google\APIs\Exceptions\Places;
 use LaravelEnso\Google\Models\Settings;
 
 class Reviews
@@ -18,6 +17,7 @@ class Reviews
     {
         $response = Http::get($this->apiUrl(), [
             'fields' => 'user_ratings_total,rating',
+            'place_id' => $this->placeId(),
             'key' => $this->apiKey(),
         ]);
 
@@ -50,6 +50,17 @@ class Reviews
         }
 
         return $url;
+    }
+
+    private function placeId(): string
+    {
+        $key = Settings::placeId();
+
+        if (! $key) {
+            throw Places::missingPlaceId();
+        }
+
+        return $key;
     }
 
     private function apiKey(): string

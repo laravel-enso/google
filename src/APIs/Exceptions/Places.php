@@ -16,6 +16,11 @@ class Places extends EnsoException
         return new static(__('Google places api key is missing'));
     }
 
+    public static function missingPlaceId(): self
+    {
+        return new static(__('Google place id is missing'));
+    }
+
     public static function wrongApiKey(): self
     {
         return new static(__('Google places api key is incorrect'));
