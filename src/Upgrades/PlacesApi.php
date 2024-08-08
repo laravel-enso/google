@@ -11,7 +11,7 @@ class PlacesApi implements MigratesTable
 {
     public function isMigrated(): bool
     {
-        return Table::hasColumn('google_settings', 'geocoding_key');
+        return Table::hasColumn('google_settings', 'places_url');
     }
 
     public function migrateTable(): void

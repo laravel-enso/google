@@ -2,7 +2,7 @@
     "routePrefix": "integrations.google.settings",
     "sections": [
         {
-            "columns": 3,
+            "columns": 2,
             "fields": [
                 {
                     "label": "Analytics Id",
@@ -30,6 +30,15 @@
                         "type": "input",
                         "content": "encrypt"
                     }
+                },
+                {
+                    "label": "Place Id",
+                    "name": "place_id",
+                    "value": "",
+                    "meta": {
+                        "type": "input",
+                        "content": "encrypt"
+                    }
                 }
             ]
         },
@@ -48,6 +57,15 @@
                 {
                     "label": "Geocoding key",
                     "name": "geocoding_key",
+                    "value": "",
+                    "meta": {
+                        "type": "input",
+                        "content": "encrypt"
+                    }
+                },
+                {
+                    "label": "Places key",
+                    "name": "places_key",
                     "value": "",
                     "meta": {
                         "type": "input",
@@ -84,6 +102,15 @@
                 {
                     "label": "Maps URL",
                     "name": "maps_url",
+                    "value": "",
+                    "meta": {
+                        "type": "input",
+                        "content": "text"
+                    }
+                },
+                {
+                    "label": "Places URL",
+                    "name": "places_url",
                     "value": "",
                     "meta": {
                         "type": "input",
