@@ -16,18 +16,6 @@ class Settings extends Model
 
     protected $guarded = ['id'];
 
-    protected $casts = [
-        'analytics_id' => Encrypt::class,
-        'ads_id' => Encrypt::class,
-        'tag_id' => Encrypt::class,
-        'place_id' => Encrypt::class,
-        'maps_key' => Encrypt::class,
-        'geocoding_key' => Encrypt::class,
-        'places_key' => Encrypt::class,
-        'recaptcha_key' => Encrypt::class,
-        'recaptcha_secret' => Encrypt::class,
-    ];
-
     public static function current()
     {
         return self::cacheGet(1)
@@ -87,5 +75,20 @@ class Settings extends Model
     protected static function newFactory()
     {
         return SettingsFactory::new();
+    }
+
+    protected function casts(): array
+    {
+        return [
+            'analytics_id' => Encrypt::class,
+            'ads_id' => Encrypt::class,
+            'tag_id' => Encrypt::class,
+            'place_id' => Encrypt::class,
+            'maps_key' => Encrypt::class,
+            'geocoding_key' => Encrypt::class,
+            'places_key' => Encrypt::class,
+            'recaptcha_key' => Encrypt::class,
+            'recaptcha_secret' => Encrypt::class,
+        ];
     }
 }
