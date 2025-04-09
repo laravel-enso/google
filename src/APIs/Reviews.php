@@ -9,37 +9,24 @@ use LaravelEnso\Google\Models\Settings;
 
 class Reviews
 {
-    private const Denied = 'REQUEST_DENIED';
-    private const Invalid = 'INVALID_REQUEST';
-    private const NoResults = 'ZERO_RESULTS';
-
     public function handle(): array
     {
-        $response = Http::get($this->apiUrl(), [
-            'fields' => 'user_ratings_total,rating,reviews',
-            'reviews_no_translations' => true,
-            'reviews_sort' => 'newest',
-            'place_id' => $this->placeId(),
-            'key' => $this->apiKey(),
-        ]);
+        $response = Http::withHeaders([
+            'X-Goog-Api-Key' => $this->apiKey(),
+            'X-Goog-FieldMask' => 'displayName,formattedAddress,rating,userRatingCount',
+        ])->get($this->apiUrl());
 
         $this->check($response);
 
-        return $response->json('result');
+        return $response->json();
     }
 
     private function check(Response $response): void
     {
-        if ($response->json('status') === self::Denied) {
-            throw Places::wrongApiKey();
-        }
+        $error = $response->json('error');
 
-        if ($response->json('status') === self::Invalid) {
-            throw Places::failed($response->json('error_message'));
-        }
-
-        if ($response->json('status') === self::NoResults) {
-            throw Places::zeroResults();
+        if ($error) {
+            throw Places::error($error['code'], $error['message']);
         }
     }
 
@@ -51,7 +38,7 @@ class Reviews
             throw Places::missingApiUrl();
         }
 
-        return $url;
+        return "{$url}/{$this->placeId()}";
     }
 
     private function placeId(): string

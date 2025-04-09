@@ -21,18 +21,14 @@ class Places extends EnsoException
         return new static(__('Google place id is missing'));
     }
 
-    public static function wrongApiKey(): self
+    public static function error(string $status, string $message): self
     {
-        return new static(__('Google places api key is incorrect'));
-    }
-
-    public static function zeroResults(): self
-    {
-        return new static(__('Zero results found'));
-    }
-
-    public static function failed(string $message): self
-    {
-        return new static(__($message));
+        return new static(__(
+            'Google places api returned the status: ":status" with the error: ":error"',
+            [
+                'status' => $status,
+                'error' => $message,
+            ]
+        ));
     }
 }
