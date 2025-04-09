@@ -3,6 +3,7 @@
 namespace LaravelEnso\Google\APIs;
 
 use Illuminate\Http\Client\Response;
+use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Http;
 use LaravelEnso\Google\APIs\Exceptions\Places;
 use LaravelEnso\Google\Models\Settings;
@@ -14,6 +15,7 @@ class Reviews
         $response = Http::withHeaders([
             'X-Goog-Api-Key' => $this->apiKey(),
             'X-Goog-FieldMask' => 'displayName,formattedAddress,rating,userRatingCount',
+            'Referer' => Config::get('app.url'),
         ])->get($this->apiUrl());
 
         $this->check($response);
