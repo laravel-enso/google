@@ -32,6 +32,11 @@ class Settings extends Model
         return self::current()->recaptcha_url;
     }
 
+    public static function recaptchaKey(): ?string
+    {
+        return self::current()->recaptcha_key;
+    }
+
     public static function placeId(): ?string
     {
         return self::current()->place_id;
