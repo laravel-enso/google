@@ -5,8 +5,8 @@ namespace LaravelEnso\Google\Upgrades;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 use LaravelEnso\Upgrade\Contracts\MigratesTable;
-use LaravelEnso\Upgrade\Helpers\Table;
 use LaravelEnso\Upgrade\Contracts\ShouldRunManually;
+use LaravelEnso\Upgrade\Helpers\Table;
 
 class DeprecateGoogleTableColumns implements MigratesTable, ShouldRunManually
 {

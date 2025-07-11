@@ -4,10 +4,10 @@ namespace LaravelEnso\Google\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Config;
 use LaravelEnso\Google\Database\Factories\SettingsFactory;
 use LaravelEnso\Helpers\Casts\Encrypt;
 use LaravelEnso\Rememberable\Traits\Rememberable;
-use Illuminate\Support\Facades\Config;
 
 class Settings extends Model
 {
