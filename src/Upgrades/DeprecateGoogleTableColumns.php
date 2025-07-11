@@ -8,7 +8,7 @@ use LaravelEnso\Upgrade\Contracts\MigratesTable;
 use LaravelEnso\Upgrade\Helpers\Table;
 use LaravelEnso\Upgrade\Contracts\ShouldRunManually;
 
-class DeprecateTableColumns implements MigratesTable, ShouldRunManually
+class DeprecateGoogleTableColumns implements MigratesTable, ShouldRunManually
 {
     public function isMigrated(): bool
     {
@@ -17,10 +17,10 @@ class DeprecateTableColumns implements MigratesTable, ShouldRunManually
 
     public function migrateTable(): void
     {
-        Schema::table('projects', fn (Blueprint $table) => $table->dropColumn([
+        Schema::table('google_settings', fn (Blueprint $table) => $table->dropColumn([
             'analytics_id',
             'ads_id',
-            'tag_id',
+            'tag_manager_id',
             'place_id',
             'maps_key',
             'geocoding_key',

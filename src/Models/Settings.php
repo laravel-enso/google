@@ -88,7 +88,7 @@ class Settings extends Model
         return [
             'analytics_id' => Encrypt::class,
             'ads_id' => Encrypt::class,
-            'tag_id' => Encrypt::class,
+            'tag_manager_id' => Encrypt::class,
             'place_id' => Encrypt::class,
             'maps_key' => Encrypt::class,
             'geocoding_key' => Encrypt::class,
