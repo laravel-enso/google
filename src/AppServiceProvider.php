@@ -10,6 +10,15 @@ class AppServiceProvider extends ServiceProvider
     {
         $this->loadRoutesFrom(__DIR__.'/../routes/api.php');
         $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
+        $this->publish();
+    }
+
+    public function publish()
+    {
+        $this->mergeConfigFrom(__DIR__.'/../config/google.php', 'enso.google');
+        $this->publishes([
+                __DIR__.'/../config' => config_path('enso'),
+            ], ['google-config', 'Wenso-config']);
     }
 
     public function register()
