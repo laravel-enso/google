@@ -18,7 +18,7 @@ class AppServiceProvider extends ServiceProvider
         $this->mergeConfigFrom(__DIR__.'/../config/google.php', 'enso.google');
         $this->publishes([
                 __DIR__.'/../config' => config_path('enso'),
-            ], ['google-config', 'Wenso-config']);
+            ], ['google-config', 'enso-config']);
     }
 
     public function register()
