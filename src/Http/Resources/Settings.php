@@ -3,6 +3,7 @@
 namespace LaravelEnso\Google\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
+use LaravelEnso\Google\Models\Settings as Model;
 
 class Settings extends JsonResource
 {
@@ -10,8 +11,8 @@ class Settings extends JsonResource
     {
         return [
             'id' => $this->id,
-            'recaptchaKey' => $this->recaptcha_key,
-            'tagManagerId' => $this->tag_manager_id,
+            'recaptchaKey' => Model::recaptchaKey(),
+            'tagManagerId' => Model::tagManagerId(),
         ];
     }
 }
