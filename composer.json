@@ -27,7 +27,7 @@
     "require": {
         "laravel-enso/forms": "^5.0",
         "laravel-enso/helpers": "^4.0",
-        "laravel-enso/upgrade": "^2.0",
+        "laravel-enso/upgrade": "^2.13",
         "laravel-enso/migrator": "^2.0"
     },
     "autoload": {
