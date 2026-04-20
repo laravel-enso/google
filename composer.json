@@ -1,7 +1,7 @@
 {
     "name": "laravel-enso/google",
     "type": "library",
-    "description": "",
+    "description": "Google integration settings and helpers for Laravel Enso",
     "authors": [
         {
             "name": "Adrian Ocneanu",
@@ -22,8 +22,15 @@
             "role": "Developer"
         }
     ],
-    "keywords": [],
-    "homepage": "https://www.laravel-enso.com",
+    "keywords": [
+        "laravel-enso",
+        "google",
+        "recaptcha",
+        "maps",
+        "places"
+    ],
+    "homepage": "https://github.com/laravel-enso/google",
+    "license": "MIT",
     "require": {
         "laravel-enso/forms": "^5.0",
         "laravel-enso/helpers": "^4.0",
