@@ -83,6 +83,10 @@ Required Enso packages:
 - [`laravel-enso/migrator`](https://docs.laravel-enso.com/backend/migrator.html) [↗](https://github.com/laravel-enso/migrator)
 - [`laravel-enso/upgrade`](https://docs.laravel-enso.com/backend/upgrade.html) [↗](https://github.com/laravel-enso/upgrade)
 
+Companion frontend package:
+
+- [`@enso-ui/google`](https://docs.laravel-enso.com/frontend/google.html) [↗](https://github.com/enso-ui/google)
+
 ## Contributions
 
 are welcome. Pull requests are great, but issues are good too.
