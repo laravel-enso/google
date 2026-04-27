@@ -16,7 +16,7 @@ class Settings extends Model
 
     protected $guarded = ['id'];
 
-    public static function current()
+    public static function current(): self
     {
         return self::find(Config::get('enso.google.settingsId'))
             ?? self::factory()->create();
