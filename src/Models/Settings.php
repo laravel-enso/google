@@ -18,8 +18,10 @@ class Settings extends Model
 
     public static function current(): self
     {
-        return self::find(Config::get('enso.google.settingsId'))
-            ?? self::factory()->create();
+        $id = Config::get('enso.google.settingsId');
+
+        return self::find($id)
+            ?? self::factory()->create(['id' => $id]);
     }
 
     public static function recaptchaSecret(): ?string
