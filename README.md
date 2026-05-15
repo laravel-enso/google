@@ -51,6 +51,7 @@ Resolve current runtime settings through the settings model:
 use LaravelEnso\Google\Models\Settings;
 
 $mapsKey = Settings::mapsKey();
+$mapId = Settings::mapId();
 $placesKey = Settings::placesKey();
 $recaptchaKey = Settings::recaptchaKey();
 ```

@@ -5,6 +5,7 @@ return [
     'analyticsId' => env('GOOGLE_ANALYTICS_ID'),
     'adsId' => env('GOOGLE_ADS_ID'),
     'placeId' => env('GOOGLE_PLACE_ID'),
+    'mapId' => env('GOOGLE_MAP_ID'),
     'mapsKey' => env('GOOGLE_MAPS_KEY'),
     'geocodingKey' => env('GOOGLE_GEOCODING_KEY'),
     'placesKey' => env('GOOGLE_PLACES_KEY'),

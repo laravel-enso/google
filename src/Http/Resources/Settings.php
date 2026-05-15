@@ -11,6 +11,7 @@ class Settings extends JsonResource
     {
         return [
             'id' => $this->id,
+            'mapId' => Model::mapId(),
             'recaptchaKey' => Model::recaptchaKey(),
             'tagManagerId' => Model::tagManagerId(),
         ];

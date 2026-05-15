@@ -55,6 +55,15 @@
                     }
                 },
                 {
+                    "label": "Map Id",
+                    "name": "map_id",
+                    "value": "",
+                    "meta": {
+                        "type": "input",
+                        "content": "encrypt"
+                    }
+                },
+                {
                     "label": "Geocoding key",
                     "name": "geocoding_key",
                     "value": "",

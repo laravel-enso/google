@@ -14,8 +14,10 @@ class SettingsFactory extends Factory
         return [
             'analytics_id' => null,
             'ads_id' => null,
+            'map_id' => null,
             'maps_key' => null,
             'geocoding_key' => null,
+            'places_key' => null,
             'maps_url' => 'https://maps.googleapis.com/maps/api/geocode/json',
             'recaptcha_key' => null,
             'recaptcha_url' => 'https://www.google.com/recaptcha/api/siteverify',

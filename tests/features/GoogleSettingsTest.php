@@ -41,6 +41,7 @@ class GoogleSettingsTest extends TestCase
         ]);
 
         $payload = [
+            'map_id' => 'vector-map-id',
             'maps_url' => 'https://new.example/maps',
             'places_url' => 'https://new.example/places',
             'recaptcha_url' => 'https://new.example/recaptcha',
@@ -50,6 +51,7 @@ class GoogleSettingsTest extends TestCase
             ->assertStatus(200)
             ->assertJsonFragment(['message' => 'Settings were stored sucessfully']);
 
+        $this->assertSame($payload['map_id'], $settings->fresh()->map_id);
         $this->assertSame($payload['maps_url'], $settings->fresh()->maps_url);
         $this->assertSame($payload['places_url'], $settings->fresh()->places_url);
         $this->assertSame($payload['recaptcha_url'], $settings->fresh()->recaptcha_url);
@@ -61,11 +63,12 @@ class GoogleSettingsTest extends TestCase
         $settings = Settings::factory()->create();
 
         $this->patch(route('integrations.google.settings.update', $settings->id, false), [
+            'map_id' => str_repeat('x', 256),
             'maps_url' => str_repeat('x', 256),
             'places_url' => 'https://new.example/places',
             'recaptcha_url' => 'https://new.example/recaptcha',
         ])->assertStatus(302)
-            ->assertSessionHasErrors(['maps_url']);
+            ->assertSessionHasErrors(['map_id', 'maps_url']);
     }
 
     #[Test]
@@ -78,5 +81,17 @@ class GoogleSettingsTest extends TestCase
         Config::set('enso.google.recaptchaUrl', 'https://config.example/recaptcha');
 
         $this->assertSame('https://db.example/recaptcha', Settings::recaptchaUrl());
+    }
+
+    #[Test]
+    public function reads_map_id_from_database_settings(): void
+    {
+        Settings::factory()->create([
+            'map_id' => 'db-map-id',
+        ]);
+
+        Config::set('enso.google.mapId', 'config-map-id');
+
+        $this->assertSame('db-map-id', Settings::mapId());
     }
 }

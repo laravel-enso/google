@@ -12,6 +12,7 @@ class ValidateSettings extends FormRequest
             'analytics_id' => 'nullable|string|max:255',
             'ads_id' => 'nullable|string|max:255',
             'place_id' => 'nullable|string|max:255',
+            'map_id' => 'nullable|string|max:255',
             'geocoding_key' => 'nullable|string|max:255',
             'maps_key' => 'nullable|string|max:255',
             'maps_url' => 'nullable|string|max:255',

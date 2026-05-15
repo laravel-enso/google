@@ -54,6 +54,11 @@ class Settings extends Model
         return self::current()->tag_manager_id;
     }
 
+    public static function mapId(): ?string
+    {
+        return self::current()->map_id;
+    }
+
     public static function mapsKey(): ?string
     {
         return self::current()->maps_key;
@@ -91,6 +96,7 @@ class Settings extends Model
             'ads_id' => Encrypt::class,
             'tag_manager_id' => Encrypt::class,
             'place_id' => Encrypt::class,
+            'map_id' => Encrypt::class,
             'maps_key' => Encrypt::class,
             'geocoding_key' => Encrypt::class,
             'places_key' => Encrypt::class,
