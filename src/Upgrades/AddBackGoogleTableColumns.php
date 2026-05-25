@@ -8,11 +8,17 @@ use Illuminate\Support\Facades\Schema;
 use LaravelEnso\Google\Models\Settings;
 use LaravelEnso\Upgrade\Contracts\MigratesData;
 use LaravelEnso\Upgrade\Contracts\MigratesTable;
+use LaravelEnso\Upgrade\Contracts\Prioritization;
 use LaravelEnso\Upgrade\Contracts\ShouldRunManually;
 use LaravelEnso\Upgrade\Helpers\Table;
 
-class AddBackGoogleTableColumns implements MigratesTable, MigratesData, ShouldRunManually
+class AddBackGoogleTableColumns implements MigratesTable, MigratesData, ShouldRunManually, Prioritization
 {
+    public function priority(): int
+    {
+        return 10;
+    }
+
     public function isMigrated(): bool
     {
         return Table::hasColumn('google_settings', 'recaptcha_secret');
